@@ -8,3 +8,5 @@ This document tracks known technical debt in the tic_tac_toe_game_dojo project. 
 - :warning: Should fix when time
 - :x: Must fix as soon as possible
 - :white_check_mark: done
+
+- Generate a test report
