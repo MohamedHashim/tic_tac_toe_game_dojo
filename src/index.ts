@@ -9,6 +9,7 @@ export class TicTacToeGame {
       ? board
       : Array.from({ length: 3 }, () => Array(3).fill('0'));
   }
+
   async play(): Promise<string> {
     let playerName = this.playerX;
     while (true) {

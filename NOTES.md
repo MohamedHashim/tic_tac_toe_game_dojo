@@ -84,5 +84,5 @@ It has 5 features
 ✅ Implment makeRandomMove function
 ✅ Implment switchPlayer function
 ✅ Implement the board printing function
-🎬 Implement the 2-second timeout between each round
+✅ Implement the 2-second timeout between each round
 ✅ Refactor the victory checks functions logic
