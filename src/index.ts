@@ -7,4 +7,8 @@ export class TicTacToeGame {
       Array(3).fill(0)
     );
   }
+
+  play(): string {
+    return 'PLAYER X WON!';
+  }
 }
