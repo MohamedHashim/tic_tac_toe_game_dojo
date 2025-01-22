@@ -39,3 +39,9 @@ export const diagonalLineOfOBoard = [
   ['X', 'O', '0'],
   ['X', 'X', 'O'],
 ];
+
+export const drawStateBoard = [
+  ['O', 'X', 'O'],
+  ['X', 'O', 'X'],
+  ['X', 'O', 'X'],
+];

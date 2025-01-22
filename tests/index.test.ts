@@ -3,6 +3,7 @@ import { TicTacToeGame } from '../src/';
 import {
   diagonalLineOfOBoard,
   diagonalLineOfXBoard,
+  drawStateBoard,
   emptyGameBoard,
   horizontalLineOfOBoard,
   horizontalLineOfXBoard,
@@ -42,6 +43,11 @@ describe('tic tac toe game', () => {
     it('given diagonal line of O then return PLAYER O WON!', () => {
       const game = new TicTacToeGame(diagonalLineOfOBoard);
       expect(game.play()).toStrictEqual('PLAYER O WON!');
+    });
+
+    it('given draw state board then return THE GAME ENDS WITH A DRAW! ', () => {
+      const game = new TicTacToeGame(drawStateBoard);
+      expect(game.play()).toStrictEqual('THE GAME ENDS WITH A DRAW!');
     });
   });
 });
