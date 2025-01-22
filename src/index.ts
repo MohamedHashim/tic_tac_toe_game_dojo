@@ -10,7 +10,10 @@ export class TicTacToeGame {
       : Array.from({ length: 3 }, () => Array(3).fill('0'));
   }
   play(): string {
-    if (this.isVerticalLineVictory(this.playerX)) {
+    if (
+      this.isVerticalLineVictory(this.playerX) ||
+      this.isHorizontalLineVictory(this.playerX)
+    ) {
       return 'PLAYER X WON!';
     } else {
       return 'PLAYER O WON!';
@@ -22,6 +25,15 @@ export class TicTacToeGame {
 
     for (let col = 0; col < size; col++) {
       if (this.boardGame.every((row) => row[col] === player)) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  private isHorizontalLineVictory(player: string): boolean {
+    for (let row = 0; row < this.boardGame.length; row++) {
+      if (this.boardGame[row].every((cell) => cell === player)) {
         return true;
       }
     }

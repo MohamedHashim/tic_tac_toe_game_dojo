@@ -10,3 +10,4 @@ This document tracks known technical debt in the tic_tac_toe_game_dojo project. 
 - :white_check_mark: done
 
 - Generate a test report
+- Optimise the victory checks functions and get rid of unnecessary redundant loops
