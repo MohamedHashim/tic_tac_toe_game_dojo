@@ -55,4 +55,8 @@ export class TicTacToeGame {
     );
     return mainDiagonalVictory || antiDiagonalVictory;
   }
+
+  hasFreeCell(player: string): boolean {
+    return false;
+  }
 }
