@@ -16,9 +16,13 @@ export class TicTacToeGame {
       this.isDiagonalLineVictory(this.playerX)
     ) {
       return 'PLAYER X WON!';
-    } else {
+    } else if (
+      this.isVerticalLineVictory(this.playerO) ||
+      this.isHorizontalLineVictory(this.playerO) ||
+      this.isDiagonalLineVictory(this.playerO)
+    )
       return 'PLAYER O WON!';
-    }
+    return 'THE GAME ENDS WITH A DRAW!';
   }
 
   private isVerticalLineVictory(player: string): boolean {
