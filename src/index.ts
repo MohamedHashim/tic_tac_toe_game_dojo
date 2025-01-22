@@ -78,4 +78,8 @@ export class TicTacToeGame {
     const [selectedRow, selectedCol] = freeCells[randomIndex];
     this.boardGame[selectedRow][selectedCol] = player;
   }
+
+  switchPlayer(playerName: string): string {
+    return playerName === this.playerX ? this.playerO : this.playerX;
+  }
 }
