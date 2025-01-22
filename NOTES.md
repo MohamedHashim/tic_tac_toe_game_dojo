@@ -18,7 +18,17 @@ It has 5 features
 
 ## :tomato: 🍎 Pomodoro 1
 
-🎬 Test 1: create 3*3 game board, when start the game, return empty 3*3 game board
+✅ Test 1: create 3*3 game board, when start the game, return empty 3*3 game board
 ['0', '0', '0']
 ['0', '0', '0']
 ['0', '0', '0']
+
+🎬 Test 2.1: given vertical line of X, then return PLAYER X WON!
+[['X', '0', '0'],
+ ['X', '0', '0'],    => PLAYER X WON! 
+ ['X', '0', '0']]
+
+🎬 Test 2.2: given vertical line of O, then return PLAYER O WON!
+[['O', '0', '0'],
+ ['O', '0', '0'],    => PLAYER O WON! 
+ ['O', '0', '0']]
