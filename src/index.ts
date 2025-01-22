@@ -1,6 +1,7 @@
 // src/index.ts
 export class TicTacToeGame {
   boardGame: string[][];
+  freeCells: [number, number][] = [];
   playerX = 'X';
   playerO = 'O';
 
@@ -12,70 +13,55 @@ export class TicTacToeGame {
   play(): string {
     let playerName = this.playerX;
     while (true) {
-      const success = this.hasFreeCell(playerName);
+      const success = this.hasFreeCell();
       if (!success) {
         return 'THE GAME ENDS WITH A DRAW!';
       }
-      console.log(`Player ${playerName}:\n`);
-      playerName = this.switchPlayer(playerName);
 
+      console.log(`Player ${playerName}:\n`);
+      this.makeRandomMove(this.freeCells, playerName);
       this.printBoard();
 
-      if (
-        this.isVerticalLineVictory(this.playerX) ||
-        this.isHorizontalLineVictory(this.playerX) ||
-        this.isDiagonalLineVictory(this.playerX)
-      ) {
-        return 'PLAYER X WON!';
-      } else return 'PLAYER O WON!';
+      if (this.hasPlayerWon(playerName)) {
+        return `PLAYER ${playerName} WON!`;
+      }
+
+      playerName = this.switchPlayer(playerName);
     }
   }
-
-  private isVerticalLineVictory(player: string): boolean {
-    const size = this.boardGame.length;
-
-    for (let col = 0; col < size; col++) {
-      if (this.boardGame.every((row) => row[col] === player)) {
+  private hasPlayerWon(player: string): boolean {
+    // horizontal line check
+    if (this.boardGame.some((row) => row.every((cell) => cell === player))) {
+      return true;
+    }
+    // vertical line check
+    for (let col = 0; col < this.boardGame.length; col++) {
+      if (this.boardGame.every((row) => row[0] === player)) {
         return true;
       }
+    }
+    // diagonal line check
+    if (
+      this.boardGame.every((row, idx) => row[idx] === player) ||
+      this.boardGame.every((row, idx) => row[2 - idx] === player)
+    ) {
+      return true;
     }
     return false;
   }
 
-  private isHorizontalLineVictory(player: string): boolean {
-    for (let row = 0; row < this.boardGame.length; row++) {
-      if (this.boardGame[row].every((cell) => cell === player)) {
-        return true;
-      }
-    }
-    return false;
-  }
-
-  private isDiagonalLineVictory(player: string): boolean {
-    const size = this.boardGame.length;
-    const mainDiagonalVictory = this.boardGame.every(
-      (row, i) => row[i] === player
-    );
-    const antiDiagonalVictory = this.boardGame.every(
-      (row, i) => row[size - 1 - i] === player
-    );
-    return mainDiagonalVictory || antiDiagonalVictory;
-  }
-
-  hasFreeCell(player: string): boolean {
-    const freeCells: [number, number][] = [];
+  hasFreeCell(): boolean {
     for (let row = 0; row < this.boardGame.length; row++) {
       for (let col = 0; col < this.boardGame[row].length; col++) {
         if (this.boardGame[row][col] === '0') {
-          freeCells.push([row, col]);
+          this.freeCells.push([row, col]);
         }
       }
     }
 
-    if (freeCells.length === 0) {
+    if (this.freeCells.length === 0) {
       return false;
     }
-    this.makeRandomMove(freeCells, player);
     return true;
   }
 
@@ -89,7 +75,7 @@ export class TicTacToeGame {
     return playerName === this.playerX ? this.playerO : this.playerX;
   }
 
-  private printBoard() {
+  printBoard() {
     console.log(
       this.boardGame.map((row) => row.join('|')).join('\n-+-+-\n') + '\n'
     );
