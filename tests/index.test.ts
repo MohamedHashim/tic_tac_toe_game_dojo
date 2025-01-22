@@ -23,6 +23,10 @@ describe('tic tac toe game', () => {
         const game = new TicTacToeGame(drawStateBoard);
         expect(game.hasFreeCell('O')).toBeFalsy();
       });
+      it('given empty board then the move is possible', () => {
+        const game = new TicTacToeGame(emptyGameBoard);
+        expect(game.hasFreeCell('X')).toBeTruthy();
+      });
     });
     describe('check the game states', () => {
       it('given vertical line of X then return PLAYER X WON!', () => {
