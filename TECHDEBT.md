@@ -12,3 +12,4 @@ This document tracks known technical debt in the tic_tac_toe_game_dojo project. 
 - Generate a test report
 - Optimise the victory checks functions and get rid of unnecessary redundant loops
 - Do we need to implement a sparate function to check the draw state?
+- 🎬 Mock the random make move function to test it

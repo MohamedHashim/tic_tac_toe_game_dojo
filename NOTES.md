@@ -64,19 +64,19 @@ It has 5 features
 
 ## :tomato: 🍎 Pomodoro 4
 
-🎬 Test 6.1: make move in full place board, then move is impossible
+✅ Test 6.1: make move in full place board, then move is impossible
 ['O', 'X', 'O'],
 ['X', 'O', 'X'], => false
 ['X', 'O', 'X'],
 
-🎬 Test 6.2: make move in empty board, then move is possible
+✅ Test 6.2: make move in empty board, then move is possible
 ['0', '0', '0'],
 ['0', '0', '0'], => true
 ['0', '0', '0'],
 
 ## backlog
 
-🎬 Implment hasFreeCell function
+✅ Implment hasFreeCell function
 🎬 Implment makeRandomMove function
 🎬 Implment switchPlayer function
 🎬 Implement the board printing function
