@@ -23,9 +23,9 @@ export const horizontalLineOfXBoard = [
 ];
 
 export const horizontalLineOfOBoard = [
-  ['O', 'O', 'O'],
   ['X', '0', '0'],
   ['X', 'X', '0'],
+  ['O', 'O', 'O'],
 ];
 
 export const diagonalLineOfXBoard = [
@@ -38,6 +38,18 @@ export const diagonalLineOfOBoard = [
   ['O', 'X', 'O'],
   ['X', 'O', '0'],
   ['X', 'X', 'O'],
+];
+
+export const antiDiagonalLineOfXBoard = [
+  ['0', 'O', 'X'],
+  ['O', 'X', '0'],
+  ['X', '0', '0'],
+];
+
+export const antiDiagonalLineOfOBoard = [
+  ['X', 'X', 'O'],
+  ['X', 'O', '0'],
+  ['O', 'X', 'X'],
 ];
 
 export const drawStateBoard = [
