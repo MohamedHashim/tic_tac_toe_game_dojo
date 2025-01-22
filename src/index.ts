@@ -56,7 +56,20 @@ export class TicTacToeGame {
     return mainDiagonalVictory || antiDiagonalVictory;
   }
 
-  hasFreeCell(player: string): boolean {
-    return false;
+  hasFreeCell(): boolean {
+    const freeCells: [number, number][] = [];
+    for (let row = 0; row < this.boardGame.length; row++) {
+      for (let col = 0; col < this.boardGame[row].length; col++) {
+        if (this.boardGame[row][col] === '0') {
+          freeCells.push([row, col]);
+        }
+      }
+    }
+
+    if (freeCells.length === 0) {
+      return false;
+    }
+
+    return true;
   }
 }
