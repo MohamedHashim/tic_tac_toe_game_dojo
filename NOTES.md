@@ -17,3 +17,6 @@
 ## :tomato: 🍎 Pomodoro 1
 
 🎬 Test 1: create 3*3 game board, when start the game, return empty 3*3 game board
+['0', '0', '0']
+['0', '0', '0']
+['0', '0', '0']

@@ -1,10 +1,13 @@
 // tests/index.test.ts
 import { helloWorld } from "../src/";
 
-describe('helloWorld function', () => {
-  describe('in scenario A', () => {
-    it('should return a hello message', () => {
-      expect(helloWorld()).toBe('Hello, world!');
+describe('tic tac toe game', () => {
+  describe('create the board game', () => {
+    it('start the game with empty board', () => {
+      expect(new TicTacToeGame().boardGame).toStrictEqual(
+       [['0', '0', '0'],
+        ['0', '0', '0'],
+        ['0', '0', '0']]);
     });
   })
 });
