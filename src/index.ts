@@ -1,6 +1,12 @@
 // src/index.ts
-export function helloWorld(): string {
-  return "Hello, world!";
-};
+export class TicTacToeGame {
+  boardGame: string[][];
 
-console.log(helloWorld());
+  constructor() {
+    this.boardGame = [
+      ['0', '0', '0'],
+      ['0', '0', '0'],
+      ['0', '0', '0'],
+    ];
+  }
+}
