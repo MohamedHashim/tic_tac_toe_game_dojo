@@ -10,19 +10,25 @@ export class TicTacToeGame {
       : Array.from({ length: 3 }, () => Array(3).fill('0'));
   }
   play(): string {
-    if (
-      this.isVerticalLineVictory(this.playerX) ||
-      this.isHorizontalLineVictory(this.playerX) ||
-      this.isDiagonalLineVictory(this.playerX)
-    ) {
-      return 'PLAYER X WON!';
-    } else if (
-      this.isVerticalLineVictory(this.playerO) ||
-      this.isHorizontalLineVictory(this.playerO) ||
-      this.isDiagonalLineVictory(this.playerO)
-    )
-      return 'PLAYER O WON!';
-    return 'THE GAME ENDS WITH A DRAW!';
+    let playerName = this.playerX;
+    while (true) {
+      const success = this.hasFreeCell(playerName);
+      if (!success) {
+        return 'THE GAME ENDS WITH A DRAW!';
+      }
+      console.log(`Player ${playerName}:\n`);
+      playerName = this.switchPlayer(playerName);
+
+      this.printBoard();
+
+      if (
+        this.isVerticalLineVictory(this.playerX) ||
+        this.isHorizontalLineVictory(this.playerX) ||
+        this.isDiagonalLineVictory(this.playerX)
+      ) {
+        return 'PLAYER X WON!';
+      } else return 'PLAYER O WON!';
+    }
   }
 
   private isVerticalLineVictory(player: string): boolean {
@@ -82,4 +88,19 @@ export class TicTacToeGame {
   switchPlayer(playerName: string): string {
     return playerName === this.playerX ? this.playerO : this.playerX;
   }
+
+  private printBoard() {
+    console.log(
+      this.boardGame.map((row) => row.join('|')).join('\n-+-+-\n') + '\n'
+    );
+  }
 }
+
+const game = new TicTacToeGame();
+
+function main() {
+  const result = game.play();
+  console.log(result);
+}
+
+main();
