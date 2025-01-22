@@ -83,6 +83,6 @@ It has 5 features
 ✅ Implment hasFreeCell function
 ✅ Implment makeRandomMove function
 ✅ Implment switchPlayer function
-🎬 Implement the board printing function
+✅ Implement the board printing function
 🎬 Implement the 2-second timeout between each round
-🎬 Refactor the victory checks functions logic
+✅ Refactor the victory checks functions logic
