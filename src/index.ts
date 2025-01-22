@@ -56,7 +56,7 @@ export class TicTacToeGame {
     return mainDiagonalVictory || antiDiagonalVictory;
   }
 
-  hasFreeCell(): boolean {
+  hasFreeCell(player: string): boolean {
     const freeCells: [number, number][] = [];
     for (let row = 0; row < this.boardGame.length; row++) {
       for (let col = 0; col < this.boardGame[row].length; col++) {
@@ -69,7 +69,13 @@ export class TicTacToeGame {
     if (freeCells.length === 0) {
       return false;
     }
-
+    this.makeRandomMove(freeCells, player);
     return true;
+  }
+
+  private makeRandomMove(freeCells: [number, number][], player: string) {
+    const randomIndex = Math.floor(Math.random() * freeCells.length);
+    const [selectedRow, selectedCol] = freeCells[randomIndex];
+    this.boardGame[selectedRow][selectedCol] = player;
   }
 }

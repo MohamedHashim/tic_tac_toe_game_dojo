@@ -21,11 +21,11 @@ describe('tic tac toe game', () => {
     describe('make a random move for every player', () => {
       it('given full placed board then the move is impossible ', () => {
         const game = new TicTacToeGame(drawStateBoard);
-        expect(game.hasFreeCell()).toBeFalsy();
+        expect(game.hasFreeCell('O')).toBeFalsy();
       });
       it('given empty board then the move is possible', () => {
         const game = new TicTacToeGame(emptyGameBoard);
-        expect(game.hasFreeCell()).toBeTruthy();
+        expect(game.hasFreeCell('X')).toBeTruthy();
       });
     });
     describe('check the game states', () => {
