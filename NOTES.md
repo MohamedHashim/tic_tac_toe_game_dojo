@@ -57,7 +57,28 @@ It has 5 features
 
 ## :tomato: 🍎 Pomodoro 3
 
-🎬 Test 5: given draw state board, then return THE GAME ENDS WITH A DRAW!
+✅ Test 5: given draw state board, then return THE GAME ENDS WITH A DRAW!
 [['O', 'X', 'O'],
  ['X', 'O', 'X'],    => THE GAME ENDS WITH A DRAW! 
  ['X', 'O', 'X']]
+
+## :tomato: 🍎 Pomodoro 4
+
+🎬 Test 6.1: make move in full place board, then move is impossible
+['O', 'X', 'O'],
+['X', 'O', 'X'], => false
+['X', 'O', 'X'],
+
+🎬 Test 6.2: make move in empty board, then move is possible
+['0', '0', '0'],
+['0', '0', '0'], => true
+['0', '0', '0'],
+
+## backlog
+
+🎬 Implment hasFreeCell function
+🎬 Implment makeRandomMove function
+🎬 Implment switchPlayer function
+🎬 Implement the board printing function
+🎬 Implement the 2-second timeout between each round
+🎬 Refactor the victory checks functions logic
