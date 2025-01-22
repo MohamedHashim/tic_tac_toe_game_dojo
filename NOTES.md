@@ -23,7 +23,7 @@ It has 5 features
 ['0', '0', '0']
 ['0', '0', '0']
 
-🎬 Test 2.1: given vertical line of X, then return PLAYER X WON!
+✅ Test 2.1: given vertical line of X, then return PLAYER X WON!
 [['X', '0', '0'],
  ['X', '0', '0'],    => PLAYER X WON! 
  ['X', '0', '0']]
