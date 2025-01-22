@@ -23,11 +23,11 @@ describe('tic tac toe game', () => {
     describe('make a random move for every player', () => {
       it('given full placed board then the move is impossible ', () => {
         const game = new TicTacToeGame(drawStateBoard);
-        expect(game.hasFreeCell()).toBeFalsy();
+        expect(game.hasFreeCell(game.playerO)).toBeFalsy();
       });
       it('given empty board then the move is possible', () => {
         const game = new TicTacToeGame(emptyGameBoard);
-        expect(game.hasFreeCell()).toBeTruthy();
+        expect(game.hasFreeCell(game.playerO)).toBeTruthy();
       });
     });
     describe('switch the player with every move', () => {
@@ -41,45 +41,45 @@ describe('tic tac toe game', () => {
       });
     });
     describe('check the game states', () => {
-      it('given vertical line of X then return PLAYER X WON!', () => {
+      it('given vertical line of X then return PLAYER X WON!', async () => {
         const game = new TicTacToeGame(verticalLineOfXBoard);
-        expect(game.play()).toStrictEqual('PLAYER X WON!');
+        expect(await game.play()).toStrictEqual('PLAYER X WON!');
       });
       it('given vertical line of O then return PLAYER O WON!', async () => {
         const game = new TicTacToeGame(verticalLineOfOBoard);
-        expect(game.play()).toStrictEqual('PLAYER O WON!');
+        expect(await game.play()).toStrictEqual('PLAYER O WON!');
       });
 
-      it('given horizontal line of X then return PLAYER X WON!', () => {
+      it('given horizontal line of X then return PLAYER X WON!', async () => {
         const game = new TicTacToeGame(horizontalLineOfXBoard);
-        expect(game.play()).toStrictEqual('PLAYER X WON!');
+        expect(await game.play()).toStrictEqual('PLAYER X WON!');
       });
-      it('given horizontal line of O then return PLAYER O WON!', () => {
+      it('given horizontal line of O then return PLAYER O WON!', async () => {
         const game = new TicTacToeGame(horizontalLineOfOBoard);
-        expect(game.play()).toStrictEqual('PLAYER O WON!');
+        expect(await game.play()).toStrictEqual('PLAYER O WON!');
       });
 
-      it('given diagonal line of X then return PLAYER X WON!', () => {
+      it('given diagonal line of X then return PLAYER X WON!', async () => {
         const game = new TicTacToeGame(diagonalLineOfXBoard);
-        expect(game.play()).toStrictEqual('PLAYER X WON!');
+        expect(await game.play()).toStrictEqual('PLAYER X WON!');
       });
-      it('given diagonal line of O then return PLAYER O WON!', () => {
+      it('given diagonal line of O then return PLAYER O WON!', async () => {
         const game = new TicTacToeGame(diagonalLineOfOBoard);
-        expect(game.play()).toStrictEqual('PLAYER O WON!');
+        expect(await game.play()).toStrictEqual('PLAYER O WON!');
       });
 
-      it('given anti diagonal line of X then return PLAYER X WON!', () => {
+      it('given anti diagonal line of X then return PLAYER X WON!', async () => {
         const game = new TicTacToeGame(antiDiagonalLineOfXBoard);
-        expect(game.play()).toStrictEqual('PLAYER X WON!');
+        expect(await game.play()).toStrictEqual('PLAYER X WON!');
       });
-      it('given antidiagonal line of O then return PLAYER O WON!', () => {
+      it('given antidiagonal line of O then return PLAYER O WON!', async () => {
         const game = new TicTacToeGame(antiDiagonalLineOfOBoard);
-        expect(game.play()).toStrictEqual('PLAYER O WON!');
+        expect(await game.play()).toStrictEqual('PLAYER O WON!');
       });
 
-      it('given draw state board then return THE GAME ENDS WITH A DRAW! ', () => {
+      it('given draw state board then return THE GAME ENDS WITH A DRAW! ', async () => {
         const game = new TicTacToeGame(drawStateBoard);
-        expect(game.play()).toStrictEqual('THE GAME ENDS WITH A DRAW!');
+        expect(await game.play()).toStrictEqual('THE GAME ENDS WITH A DRAW!');
       });
     });
   });

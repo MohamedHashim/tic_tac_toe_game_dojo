@@ -1,7 +1,6 @@
 // src/index.ts
 export class TicTacToeGame {
   boardGame: string[][];
-  freeCells: [number, number][] = [];
   playerX = 'X';
   playerO = 'O';
 
@@ -10,25 +9,26 @@ export class TicTacToeGame {
       ? board
       : Array.from({ length: 3 }, () => Array(3).fill('0'));
   }
-  play(): string {
+  async play(): Promise<string> {
     let playerName = this.playerX;
     while (true) {
-      const success = this.hasFreeCell();
+      const success = this.hasFreeCell(playerName);
       if (!success) {
         return 'THE GAME ENDS WITH A DRAW!';
       }
-
       console.log(`Player ${playerName}:\n`);
-      this.makeRandomMove(this.freeCells, playerName);
+      playerName = this.switchPlayer(playerName);
+
       this.printBoard();
 
       if (this.hasPlayerWon(playerName)) {
         return `PLAYER ${playerName} WON!`;
       }
 
-      playerName = this.switchPlayer(playerName);
+      await this.delay(2000);
     }
   }
+
   private hasPlayerWon(player: string): boolean {
     // horizontal line check
     if (this.boardGame.some((row) => row.every((cell) => cell === player))) {
@@ -50,18 +50,21 @@ export class TicTacToeGame {
     return false;
   }
 
-  hasFreeCell(): boolean {
+  hasFreeCell(player: string): boolean {
+    const freeCells: [number, number][] = [];
     for (let row = 0; row < this.boardGame.length; row++) {
       for (let col = 0; col < this.boardGame[row].length; col++) {
         if (this.boardGame[row][col] === '0') {
-          this.freeCells.push([row, col]);
+          freeCells.push([row, col]);
         }
       }
     }
 
-    if (this.freeCells.length === 0) {
+    if (freeCells.length === 0) {
       return false;
     }
+
+    this.makeRandomMove(freeCells, player);
     return true;
   }
 
@@ -75,10 +78,13 @@ export class TicTacToeGame {
     return playerName === this.playerX ? this.playerO : this.playerX;
   }
 
-  printBoard() {
+  private printBoard() {
     console.log(
       this.boardGame.map((row) => row.join('|')).join('\n-+-+-\n') + '\n'
     );
+  }
+  private delay(ms: number): Promise<void> {
+    return new Promise((resolve) => setTimeout(resolve, ms));
   }
 }
 
