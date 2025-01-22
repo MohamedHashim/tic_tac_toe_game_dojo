@@ -28,6 +28,16 @@ describe('tic tac toe game', () => {
         expect(game.hasFreeCell('X')).toBeTruthy();
       });
     });
+    describe('switch the player with every move', () => {
+      it('given current player is X then the next player is O', () => {
+        const game = new TicTacToeGame();
+        expect(game.switchPlayer('X')).toStrictEqual('O');
+      });
+      it('given current player is O then the next player is X', () => {
+        const game = new TicTacToeGame();
+        expect(game.switchPlayer('O')).toStrictEqual('X');
+      });
+    });
     describe('check the game states', () => {
       it('given vertical line of X then return PLAYER X WON!', () => {
         const game = new TicTacToeGame(verticalLineOfXBoard);

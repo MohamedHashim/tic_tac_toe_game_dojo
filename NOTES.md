@@ -74,14 +74,14 @@ It has 5 features
 ['0', '0', '0'], => true
 ['0', '0', '0'],
 
-✅ Test 7: switch the player with every move
+🎬 Test 7: switch the player with every move
 'X' => 'O'
 'O' => 'X'
 
 ## backlog
 
 ✅ Implment hasFreeCell function
-🎬 Implment makeRandomMove function
+✅ Implment makeRandomMove function
 🎬 Implment switchPlayer function
 🎬 Implement the board printing function
 🎬 Implement the 2-second timeout between each round
