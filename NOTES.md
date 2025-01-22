@@ -74,6 +74,10 @@ It has 5 features
 ['0', '0', '0'], => true
 ['0', '0', '0'],
 
+✅ Test 7: switch the player with every move
+'X' => 'O'
+'O' => 'X'
+
 ## backlog
 
 ✅ Implment hasFreeCell function
