@@ -1,6 +1,8 @@
 // tests/index.test.ts
 import { TicTacToeGame } from '../src/';
 import {
+  diagonalLineOfOBoard,
+  diagonalLineOfXBoard,
   emptyGameBoard,
   horizontalLineOfOBoard,
   horizontalLineOfXBoard,
@@ -30,6 +32,15 @@ describe('tic tac toe game', () => {
     });
     it('given horizontal line of O then return PLAYER O WON!', () => {
       const game = new TicTacToeGame(horizontalLineOfOBoard);
+      expect(game.play()).toStrictEqual('PLAYER O WON!');
+    });
+
+    it('given diagonal line of X then return PLAYER X WON!', () => {
+      const game = new TicTacToeGame(diagonalLineOfXBoard);
+      expect(game.play()).toStrictEqual('PLAYER X WON!');
+    });
+    it('given diagonal line of O then return PLAYER O WON!', () => {
+      const game = new TicTacToeGame(diagonalLineOfOBoard);
       expect(game.play()).toStrictEqual('PLAYER O WON!');
     });
   });

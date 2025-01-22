@@ -27,3 +27,15 @@ export const horizontalLineOfOBoard = [
   ['X', '0', '0'],
   ['X', 'X', '0'],
 ];
+
+export const diagonalLineOfXBoard = [
+  ['X', 'O', 'O'],
+  ['O', 'X', '0'],
+  ['0', '0', 'X'],
+];
+
+export const diagonalLineOfOBoard = [
+  ['O', 'X', 'O'],
+  ['X', 'O', '0'],
+  ['X', 'X', 'O'],
+];
