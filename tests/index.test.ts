@@ -8,4 +8,9 @@ describe('tic tac toe game', () => {
       expect(new TicTacToeGame().boardGame).toStrictEqual([emptyGameBoard]);
     });
   });
+  describe('start the game', () => {
+    it('given vertical line of X then return PLAYER X WON!', () => {
+      expect(new TicTacToeGame().play()).toStrictEqual('PLAYER X WON!');
+    });
+  });
 });
