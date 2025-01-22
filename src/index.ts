@@ -91,8 +91,8 @@ export class TicTacToeGame {
 
 const game = new TicTacToeGame();
 
-function main() {
-  const result = game.play();
+async function main() {
+  const result = await game.play();
   console.log(result);
 }
 
