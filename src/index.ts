@@ -12,7 +12,8 @@ export class TicTacToeGame {
   play(): string {
     if (
       this.isVerticalLineVictory(this.playerX) ||
-      this.isHorizontalLineVictory(this.playerX)
+      this.isHorizontalLineVictory(this.playerX) ||
+      this.isDiagonalLineVictory(this.playerX)
     ) {
       return 'PLAYER X WON!';
     } else {
@@ -38,5 +39,16 @@ export class TicTacToeGame {
       }
     }
     return false;
+  }
+
+  private isDiagonalLineVictory(player: string): boolean {
+    const size = this.boardGame.length;
+    const mainDiagonalVictory = this.boardGame.every(
+      (row, i) => row[i] === player
+    );
+    const antiDiagonalVictory = this.boardGame.every(
+      (row, i) => row[size - 1 - i] === player
+    );
+    return mainDiagonalVictory || antiDiagonalVictory;
   }
 }
