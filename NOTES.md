@@ -35,12 +35,22 @@ It has 5 features
 
 ## :tomato: 🍎 Pomodoro 2
 
-🎬 Test 3.1: given horizontal line of X, then return PLAYER X WON!
+✅ Test 3.1: given horizontal line of X, then return PLAYER X WON!
 [['X', 'X', 'X'],
  ['O', '0', '0'],    => PLAYER X WON! 
  ['0', 'O', '0']]
 
-🎬 Test 3.2: given horizontal line of O, then return PLAYER O WON!
+✅ Test 3.2: given horizontal line of O, then return PLAYER O WON!
 [['O', 'O', 'O'],
  ['X', '0', '0'],    => PLAYER O WON! 
  ['X', 'X', '0']]
+
+🎬 Test 4.1: given diagonal line of X, then return PLAYER X WON!
+[['X', 'O', 'O'],
+ ['O', 'X', '0'],    => PLAYER X WON! 
+ ['0', '0', 'X']]
+
+🎬 Test 4.2: given diagonal line of O, then return PLAYER O WON!
+[['O', 'X', 'O'],
+ ['X', 'O', '0'],    => PLAYER O WON! 
+ ['X', 'X', 'O']]
